@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My GPT — Built from Scratch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #0b1020;
+        color: #e5e7eb;
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 80px 30px;
+        background: linear-gradient(135deg, #111827, #1f2937);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        margin-bottom: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #60a5fa, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero p {
+        color: #9ca3af;
+        font-size: 1.1rem;
+        max-width: 750px;
+        margin: auto;
+      }
+
+      .badge {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: rgba(96, 165, 250, 0.1);
+        border: 1px solid rgba(96, 165, 250, 0.3);
+        color: #93c5fd;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .section {
+        margin-bottom: 60px;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #ffffff;
+        border-left: 4px solid #60a5fa;
+        padding-left: 14px;
+      }
+
+      .card {
+        background: #111827;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 18px;
+        padding: 28px;
+        margin-top: 20px;
+        transition: 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(96, 165, 250, 0.4);
+      }
+
+      pre {
+        background: #020617;
+        color: #d1d5db;
+        padding: 24px;
+        border-radius: 16px;
+        overflow-x: auto;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      code {
+        font-family: "Courier New", monospace;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+
+      .feature {
+        background: #111827;
+        padding: 24px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .feature h3 {
+        margin-bottom: 14px;
+        color: #60a5fa;
+        font-size: 1.2rem;
+      }
+
+      ul {
+        padding-left: 20px;
+        color: #cbd5e1;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .buttons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 14px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(to right, #3b82f6, #8b5cf6);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #d1d5db;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .btn-secondary:hover {
+        border-color: rgba(96, 165, 250, 0.5);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 80px;
+        color: #6b7280;
+        font-size: 0.95rem;
+      }
+
+      a {
+        color: #93c5fd;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .section h2 {
+          font-size: 1.5rem;
+        }
+
+        body {
+          padding: 20px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero">
+         <!-- <div class="section"> -->
+            <div class="card">
+        <h1>🧠 My GPT — Built from Scratch</h1>
+
+        <p>
+          𝗔𝘀𝘀𝗲𝗺𝗯𝗹𝗲𝗱 𝗳𝗿𝗼𝗺 𝘁𝗵𝗲 𝗡𝗲𝗲𝘁𝗖𝗼𝗱𝗲 𝗠𝗟 𝗰𝗼𝘂𝗿𝘀𝗲 𝗮𝗻𝗱 𝗯𝘂𝗶𝗹𝘁 𝗰𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗹𝘆 𝗳𝗿𝗼𝗺
+          𝘀𝗰𝗿𝗮𝘁𝗰𝗵 𝘄𝗵𝗶𝗹𝗲 𝗹𝗲𝗮𝗿𝗻𝗶𝗻𝗴 𝘁𝗵𝗲 𝗶𝗻𝘁𝗲𝗿𝗻𝗮𝗹𝘀 𝗼𝗳 𝗺𝗼𝗱𝗲𝗿𝗻 𝘁𝗿𝗮𝗻𝘀𝗳𝗼𝗿𝗺𝗲𝗿
+          𝗮𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗲𝘀 𝗮𝗻𝗱 𝗚𝗣𝗧 𝗺𝗼𝗱𝗲𝗹𝘀.
+        </p>
+
+        <div class="badge" style="margin-top: 30px">
+          Built by <strong>Shriram Lahane</strong>
+        </div>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://neetcode.io" target="_blank">
+            𝗩𝗶𝘀𝗶𝘁 𝗠𝘆 𝗡𝗲𝗲𝘁𝗖𝗼𝗱𝗲
+          </a>
+
+          <a
+            class="btn btn-primary"
+            href="https://github.com/shriram7057/neetcode-gpt"
+            target="_blank"
+          >
+            𝗩𝗶𝘀𝗶𝘁 𝗠𝘆 𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝘆
+          </a>
+        </div>
+      </div>
+        </section>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section class="section">
+        <h2>🚀 Overview</h2>
+
+        <div class="card">
+          <p>
+            This repository documents my complete journey through the NeetCode
+            Machine Learning course — starting from the mathematical foundations
+            of neural networks and progressing all the way to building a
+            functional GPT architecture from scratch.
+          </p>
+
+          <br />
+
+          <p>
+            Every module, implementation, and experiment in this project was
+            written and submitted by me while completing the course.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROJECT STRUCTURE -->
+      <section class="section">
+         <!-- <div class="section"> -->
+        <div class="card">
+        <h2>📂 Project Structure</h2>
+
+        <pre><code>model/
+  attention.py
+  multi_head_attention.py
+  transformer.py
+  gpt.py
+  normalization.py
+  batch_normalization.py
+  rms_normalization.py
+  embeddings.py
+  positional_encoding.py
+  kv_cache.py
+  grouped_query_attention.py
+
+data/
+  tokenizer.py
+  vocab.py
+  loader.py
+  dataset.py
+  nlp_preprocessing.py
+  tokenizer_utils.py
+
+train.py
+generate.py
+
+foundations/
+  neuron.py
+  backprop.py
+  mlp.py
+  activations.py
+  loss.py
+  training_loop.py
+  dead_relu_detector.py</code></pre>
+      </section>
+</div>
+      <!-- FEATURES -->
+      <section class="section">
+        <h2>⚡ Features</h2>
+
+        <div class="grid">
+           <div class="section">
+            <div class="card">
+            <h3>🧩 Neural Networks</h3>
+            <ul>
+              <li>Backpropagation</li>
+              <li>Gradient descent</li>
+              <li>MLP implementation</li>
+              <li>Activation functions</li>
+            </ul>
+            </div>
+          </div>
+
+           <div class="section">
+            <div class="card">
+            <h3>🧠 Transformer Components</h3>
+            <ul>
+              <li>Self-attention</li>
+              <li>Multi-head attention</li>
+              <li>RMS normalization</li>
+              <li>KV Cache</li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="card">
+            <h3>🔤 NLP Pipeline</h3>
+            <ul>
+              <li>BPE tokenizer</li>
+              <li>Dataset preparation</li>
+              <li>Vocabulary generation</li>
+              <li>Text preprocessing</li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="card">
+            <h3>🤖 GPT Model</h3>
+            <ul>
+              <li>Autoregressive generation</li>
+              <li>Transformer-based GPT</li>
+              <li>Training pipeline</li>
+              <li>Inference utilities</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUICK START -->
+      <section class="section">
+        <h2>🛠️ Quick Start</h2>
+
+        <div class="card">
+          <pre><code>pip install -r requirements.txt
+
+python train.py
+
+python generate.py</code></pre>
+        </div>
+      </section>
+
+      <!-- COURSE -->
+      <section class="section">
+        <h2>📚 Course Reference</h2>
+
+        <div class="card">
+          <p>
+            This project was built while completing the
+            <a
+              href="https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning"
+              target="_blank"
+            >
+              NeetCode ML Course </a
+            >.
+          </p>
+
+          <br />
+
+          <ul>
+            <li>Math foundations</li>
+            <li>Backpropagation</li>
+            <li>Neural networks</li>
+            <li>Attention mechanisms</li>
+            <li>Transformers</li>
+            <li>GPT architecture</li>
+            <li>Text generation</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="section">
+        <h2>🎯 Why This Project Exists</h2>
+
+        <div class="card">
+          <p>
+            Most GPT repositories abstract away the internals behind modern
+            language models.
+          </p>
+
+          <br />
+
+          <p>
+            This repository takes the opposite approach — implementing the core
+            mechanics manually to deeply understand how transformers and GPTs
+            work internally.
+          </p>
+        </div>
+      </section>
+
+      <!-- FUTURE -->
+      <section class="section">
+        <h2>📈 Future Improvements</h2>
+
+        <div class="grid">
+          <div class="feature">
+            <h3>🚀 Scaling</h3>
+            <ul>
+              <li>Larger datasets</li>
+              <li>Bigger models</li>
+              <li>Distributed training</li>
+            </ul>
+          </div>
+
+          <div class="feature">
+            <h3>⚡ Optimization</h3>
+            <ul>
+              <li>Flash Attention</li>
+              <li>Mixed precision</li>
+              <li>Inference optimization</li>
+            </ul>
+          </div>
+
+          <div class="feature">
+            <h3>📊 Evaluation</h3>
+            <ul>
+              <li>Benchmarks</li>
+              <li>Model evaluation</li>
+              <li>Fine-tuning pipeline</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer>
+        <p>Built with ❤️ by <strong>Shriram Lahane</strong></p>
+
+        <br />
+        
+<h3 align="left">🌐 Connect with Me</h3>
+<br />
+<p align="left">
+
+<a href="https://github.com/shriram7057" target="_blank">
+  <img src="https://skillicons.dev/icons?i=github" width="48" height="48" alt="GitHub"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://linkedin.com/in/Shriram%20Lahane" target="_blank">
+  <img src="https://skillicons.dev/icons?i=linkedin" width="48" height="48" alt="LinkedIn"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://kaggle.com/shriramlahane" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/kaggle.svg" width="45" height="45" alt="Kaggle"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://instagram.com/pvt.shree_01" target="_blank">
+  <img src="https://skillicons.dev/icons?i=instagram" width="48" height="48" alt="Instagram"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://leetcode.com/shriram-01" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" width="45" height="45" alt="LeetCode"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://auth.geeksforgeeks.org/user/shriram01" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/geeksforgeeks.svg" width="45" height="45" alt="GeeksforGeeks"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://discord.com/users/shriram_79991" target="_blank">
+  <img src="https://skillicons.dev/icons?i=discord" width="48" height="48" alt="Discord"/>
+</a>
+&nbsp;&nbsp;
+
+<a href="https://hackerrank.com/@lahaneshriram2" target="_blank">
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hackerrank.svg" width="45" height="45" alt="HackerRank"/>
+</a>
+
+</p>
+
+---
+
+<p align="center">
+  ✨ <b>Let's build, learn, and grow together 🚀</b> ✨
+</p>
+
+        <p>
+          <br / >
+          Educational project inspired by
+          <a href="https://neetcode.io" target="_blank"> NeetCode </a>
+        </p>
+        
+      </footer>
+    </div>
+    </div>
+  </body>
+</html>
