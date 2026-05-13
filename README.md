@@ -1,35 +1,57 @@
-<div align="center">
+# My GPT — Built from Scratch
 
-# 🧠 My GPT — Built from Scratch
+> Assembled from the NeetCode ML course on [NeetCode.io](https://neetcode.io)
+> Built by **Shriram Lahane** on May 13, 2026
 
-### Transformer • Attention • Tokenization • GPT
+Every file in this project is code I wrote and submitted while completing the NeetCode ML course.
+The problems progressively build from gradient descent fundamentals all the way to a working GPT.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python">
-  <img src="https://img.shields.io/badge/PyTorch-DeepLearning-red?style=for-the-badge&logo=pytorch">
-  <img src="https://img.shields.io/badge/GPT-Transformer-purple?style=for-the-badge">
-</p>
+## Project Structure
 
-<br>
+```
+model/          Attention, Transformer, GPT architecture
+  attention.py             Self-attention head
+  multi_head_attention.py  Multi-headed attention
+  transformer.py           Transformer block
+  gpt.py                   GPT model
+  normalization.py         Layer normalization
+  batch_normalization.py   Batch normalization
+  rms_normalization.py     RMS normalization
+  embeddings.py            Word embeddings
+  positional_encoding.py   Positional encoding
+  kv_cache.py              KV-Cache for fast inference
+  grouped_query_attention.py  Grouped query attention
 
-<a href="https://YOUR_USERNAME.github.io/YOUR_REPO">
-  <img width="100%" src="assets/preview.png">
-</a>
+data/           Data pipeline
+  tokenizer.py                BPE tokenizer
+  vocab.py                    Character-level vocabulary
+  loader.py                   Batched training data loader
+  dataset.py                  GPT dataset preparation
+  nlp_preprocessing.py        NLP preprocessing
+  tokenizer_utils.py          Tokenization edge cases
 
-<br><br>
+train.py        GPT training loop
+generate.py     Text generation
 
-# ✨ Live Demo
+foundations/    Neural network primitives built from scratch
+  neuron.py, backprop.py, mlp.py, activations.py, loss.py,
+  training_loop.py, dead_relu_detector.py, ...
+```
 
-### 🚀 [Open Premium Interactive Website](https://shriram7057.github.io/neetcode-gpt/)
+## Quick Start
 
-</div>
+```bash
+pip install -r requirements.txt
+python train.py
+python generate.py
+```
 
----
+## Course
 
-# 📚 Overview
-
-This project documents my journey through the NeetCode ML course,
-starting from neural network fundamentals all the way to building
-a GPT architecture from scratch.
-
----
+This project was built by completing the [NeetCode ML Course](https://neetcode.io/practice?tab=coreSkills&topic=Machine+Learning):
+- Math Foundations (gradient descent, activations, loss functions)
+- Neural Networks from scratch (neuron, backprop, MLP)
+- PyTorch fundamentals
+- NLP pipeline (embeddings, tokenization, attention)
+- Transformer architecture
+- GPT model + text generation 
