@@ -20,7 +20,7 @@
 
 # ✨ Live Demo
 
-### 🚀 [Open Premium Interactive Website](https://YOUR_USERNAME.github.io/YOUR_REPO)
+### 🚀 [Open Premium Interactive Website](https://shriram7057.github.io/neetcode-gpt/)
 
 </div>
 
